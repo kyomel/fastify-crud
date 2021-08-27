@@ -8,7 +8,8 @@ async function dbConnector(fastify, options) {
         const url = process.env.DB_URL
         const db = await mongoose
                 .connect(url, {
-                    useNewUrlParser: true
+                    useNewUrlParser: true,
+                    useUnifiedTopology: true
                 })
         console.log("Database is connected")
         fastify.decorate('mongo', db)
